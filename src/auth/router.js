@@ -11,8 +11,10 @@ authRouter.post('/signup', (req, res, next) => {
   let user = new User(req.body);
   user.save()
     .then( (user) => {
+      console.log('ok', user);
       User.findOne({_id: user._id})
         .then(user => {
+          console.log('still ok', user);
           req.token = user.generateToken();
           req.user = user;
           res.set('token', req.token);
