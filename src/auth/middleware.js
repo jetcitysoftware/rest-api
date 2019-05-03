@@ -3,11 +3,16 @@
 const User = require('./users-model.js');
 
 module.exports = (capability) => {
-  
+
   return (req, res, next) => {
 
+    if ( ! process.env.AUTHENTICATED ) { next(); return; }
+
     try {
+      console.log(req.headers);
       let [authType, authString] = req.headers.authorization.split(/\s+/);
+
+      console.log(authType, authString);
 
       switch (authType.toLowerCase()) {
         case 'basic':
@@ -56,5 +61,5 @@ module.exports = (capability) => {
     }
 
   };
-  
+
 };
