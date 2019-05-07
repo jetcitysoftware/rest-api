@@ -18,6 +18,9 @@ const notFound = require( `${cwd}/src/middleware/404.js` );
 const authRouter = require( `${cwd}/src/auth/router.js` );
 const v1Router = require( `${cwd}/src/api/v1.js` );
 
+// Swagger Doc Generator
+require( `${cwd}/src/api/swagger.js` );
+
 // Prepare the express app
 const app = express();
 
@@ -48,5 +51,5 @@ let start = (port = process.env.PORT) => {
     console.log(`Server Up on ${port}`);
   });
 };
-  
+
 module.exports = {app,start};
