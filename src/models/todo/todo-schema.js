@@ -8,6 +8,7 @@ const todo = mongoose.Schema({
   assignee: { type:String, required:true },
   due: { type:Date, required:true },
   difficulty: {type:Number, required:true},
+  complete: {type:Boolean, required:true, default:false}
 });
 
 module.exports = mongoose.model('todo', todo);
