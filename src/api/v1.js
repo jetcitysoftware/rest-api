@@ -18,6 +18,18 @@ const router = express.Router();
 // Evaluate the model, dynamically
 router.param('model', modelFinder.load);
 
+// Models List
+router.get('/api/v1/models', (request, response) => {
+  modelFinder.list()
+    .then(models => response.status(200).json(models));
+});
+
+// JSON Schema
+router.get('/api/v1/:model/schema', (request, response) => {
+  response.status(200).json(request.model.jsonSchema());
+});
+
+
 // API Routes
 /**
  * Get a list of records for a given model
@@ -43,16 +55,7 @@ router.get('/api/v1/:model/:id',  handleGetOne);
 router.put('/api/v1/:model/:id', handlePut);
 router.delete('/api/v1/:model/:id', handleDelete);
 
-// Models List
-router.get('/api/v1/models', (request, response) => {
-  modelFinder.list()
-    .then(models => response.status(200).json(models));
-});
 
-// JSON Schema
-router.get('/api/v1/:model/schema', (request, response) => {
-  response.status(200).json(request.model.jsonSchema());
-});
 
 // Route Handlers
 function handleGetAll(request,response,next) {
