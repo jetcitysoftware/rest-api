@@ -10,4 +10,4 @@ const todo = mongoose.Schema({
   difficulty: {type:Number, required:true},
 });
 
-module.exports = mongoose.model('todo', players);
+module.exports = mongoose.model('todo', todo);
