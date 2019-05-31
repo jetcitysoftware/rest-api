@@ -6,8 +6,6 @@ module.exports = (capability) => {
 
   return (req, res, next) => {
 
-    next();
-
     try {
       console.log(req.headers);
       let [authType, authString] = req.headers.authorization.split(/\s+/);

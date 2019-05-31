@@ -18,8 +18,6 @@ const router = express.Router();
 // Evaluate the model, dynamically
 router.param('model', modelFinder.load);
 
-
-
 // API Routes
 /**
  * Get a list of records for a given model
@@ -30,7 +28,7 @@ router.param('model', modelFinder.load);
  * @returns {object} 200 { count: 2, results: [ {}, {} ] }
  * @returns {Error}  500 - Server error
  */
-router.get('/api/v1/:model', auth('read'), handleGetAll);
+router.get('/api/v1/:model', handleGetAll);
 
 /**
  * @route POST /api/v1/:model
@@ -39,11 +37,11 @@ router.get('/api/v1/:model', auth('read'), handleGetAll);
  * @returns {object} 200 - Count of results with an array of results
  * @returns {Error}  500 - Unexpected error
  */
-router.post('/api/v1/:model', auth('create'), handlePost);
+router.post('/api/v1/:model',  handlePost);
 
-router.get('/api/v1/:model/:id', auth('read'), handleGetOne);
-router.put('/api/v1/:model/:id', auth('update'), handlePut);
-router.delete('/api/v1/:model/:id', auth('delete'), handleDelete);
+router.get('/api/v1/:model/:id',  handleGetOne);
+router.put('/api/v1/:model/:id', handlePut);
+router.delete('/api/v1/:model/:id', handleDelete);
 
 // Models List
 router.get('/api/v1/models', (request, response) => {
