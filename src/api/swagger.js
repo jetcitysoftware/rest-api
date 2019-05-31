@@ -25,5 +25,5 @@ let options = {
   files: ['./*.js'], //Path to the API handle folder
 };
 expressSwagger(options);
-// Uncomment this to start up a specific swagger server
-// app.listen(3000);
+// start up a specific standalone swagger server on a specific port
+app.listen(3000);

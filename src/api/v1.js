@@ -57,7 +57,6 @@ router.get('/api/v1/:model/schema', (request, response) => {
 });
 
 // Route Handlers
-
 function handleGetAll(request,response,next) {
   request.model.get()
     .then( data => {
