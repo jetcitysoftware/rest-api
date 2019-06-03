@@ -7,7 +7,7 @@ const todo = mongoose.Schema({
   text: { type:String, required:true },
   assignee: { type:String, required:true },
   due: { type:Date, required:true },
-  difficulty: {type:Number, required:true},
+  difficulty: {type:Number, required:true, default: 3},
   complete: {type:Boolean, required:true, default:false}
 });
 

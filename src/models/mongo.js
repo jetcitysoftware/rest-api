@@ -41,7 +41,7 @@ class Model {
    */
   post(record) {
     let newRecord = new this.schema(record);
-    Q.publish('database', 'create', {action:'create', collection:this.schema.modelName,id:newRecord.id});
+    Q.publish('database', 'create', {action:'create', collection:this.schema.modelName,record:newRecord});
     return newRecord.save();
   }
 
