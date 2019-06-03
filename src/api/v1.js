@@ -49,9 +49,9 @@ router.get('/api/v1/:model', handleGetAll);
  * @returns {object} 200 - Count of results with an array of results
  * @returns {Error}  500 - Unexpected error
  */
-router.post('/api/v1/:model', auth('delete'), handlePost);
+router.post('/api/v1/:model', handlePost);
 
-router.get('/api/v1/:model/:id', auth(),  handleGetOne);
+router.get('/api/v1/:model/:id', handleGetOne);
 router.put('/api/v1/:model/:id', handlePut);
 router.delete('/api/v1/:model/:id', handleDelete);
 
