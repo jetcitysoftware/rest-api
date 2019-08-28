@@ -52,7 +52,7 @@ class Model {
    * @returns {*}
    */
   put(_id, record) {
-    Q.publish('database', 'update', {action:'update', collection:this.schema.modelName,id:_id});
+    Q.publish('database', 'update', {action:'update', collection:this.schema.modelName,id:_id, record:record});
     return this.schema.findByIdAndUpdate(_id, record, {new:true});
   }
 
