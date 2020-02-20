@@ -77,6 +77,7 @@ function handleGetOne(request,response,next) {
 }
 
 function handlePost(request,response,next) {
+  console.log('post', request.body);
   request.model.post(request.body)
     .then( result => response.status(200).json(result) )
     .catch( next );
